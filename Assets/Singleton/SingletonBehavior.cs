@@ -39,7 +39,7 @@ namespace JoonyleGameDevKit
             {
                 Destroy(this.gameObject);
             }
-            else
+            else 
             {
                 _instance = this as T;
                 DontDestroyOnLoad(this.gameObject);
