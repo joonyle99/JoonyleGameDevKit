@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObjectGenerator : MonoBehaviour
 {
-    public ObjectPoolingBehavior objectPooling;
+    public JoonyleGameDevKit.ObjectPoolingBehavior objectPooling;
 
     private void Start()
     {
