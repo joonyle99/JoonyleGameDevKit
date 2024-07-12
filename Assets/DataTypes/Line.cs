@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace JoonyleGameDevKit.Structure
+namespace JoonyleGameDevKit
 {
-    public struct Line2
+    public struct Line2D
     {
         public Vector2 pointA;
         public Vector2 pointB;
 
-        public Line2(Vector2 a, Vector2 b)
+        public Line2D(Vector2 a, Vector2 b)
         {
             pointA = a;
             pointB = b;
@@ -19,7 +19,7 @@ namespace JoonyleGameDevKit.Structure
         /// <param name="line">The line to interpolate along.</param>
         /// <param name="t">The interpolation factor (0 to 1).</param>
         /// <returns>The interpolated point.</returns>
-        public static Vector2 Lerp(Line2 line, float t)
+        public static Vector2 Lerp(Line2D line, float t)
         {
             t = Mathf.Clamp01(t);
 
@@ -29,12 +29,12 @@ namespace JoonyleGameDevKit.Structure
             return new Vector2(pointA.x + (pointB.x - pointA.x) * t, pointA.y + (pointB.y - pointA.y) * t);
         }
     }
-    public struct Line3
+    public struct Line3D
     {
         public Vector3 pointA;
         public Vector3 pointB;
 
-        public Line3(Vector3 a, Vector3 b)
+        public Line3D(Vector3 a, Vector3 b)
         {
             pointA = a;
             pointB = b;
@@ -46,7 +46,7 @@ namespace JoonyleGameDevKit.Structure
         /// <param name="line">The line to interpolate along.</param>
         /// <param name="t">The interpolation factor (0 to 1).</param>
         /// <returns>The interpolated point.</returns>
-        public static Vector3 Lerp(Line3 line, float t)
+        public static Vector3 Lerp(Line3D line, float t)
         {
             t = Mathf.Clamp01(t);
 
