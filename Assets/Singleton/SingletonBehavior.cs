@@ -43,7 +43,14 @@ namespace JoonyleGameDevKit
             {
                 _instance = this as T;
                 DontDestroyOnLoad(this.gameObject);
+
+                // Debug.Log($"[ {typeof(T).Name} ] is created");
             }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            // Debug.Log($"Destroyed {typeof(T).Name} instance");
         }
     }
 }
