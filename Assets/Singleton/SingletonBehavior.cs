@@ -14,7 +14,7 @@ namespace JoonyleGameDevKit
 
                     if (_instance == null)
                     {
-                        Debug.LogWarning(
+                        UnityEngine.Debug.LogWarning(
                             $"No object of [ {typeof(T).Name} ] is no found \n {new System.Diagnostics.StackTrace()}");
 
                         /*
