@@ -1,26 +1,74 @@
 using UnityEngine;
 using System.Collections;
+using static UnityEditor.Progress;
+using System.Collections.Generic;
 
 public class ObjectGenerator : MonoBehaviour
 {
-    public JoonyleGameDevKit.ObjectPoolingBehavior objectPooling;
+    [Header("━━━━━━━━ Object Generator ━━━━━━━━")]
+    [Space]
 
-    private void Start()
+    [SerializeField] protected Transform _spawnPoint;
+    public Transform SpawnPoint => _spawnPoint;
+
+    [Space]
+
+    [SerializeField] protected float intervalTime = 1f;
+    [SerializeField] protected int maxCount = 10;
+    [SerializeField] protected int nowCount;                            // 활성화되어 사용되고 있는 오브젝트의 개수
+    public int NowCount
     {
-        StartCoroutine(GenerateCoroutine_ObjectPooling());
+        get => nowCount;
+        set => nowCount = value;
     }
 
-    public IEnumerator GenerateCoroutine_ObjectPooling()
-    {
-        objectPooling.CreatePool();
+    protected ObjectPoolingBase objectPoolingBase;
+    public ObjectPoolingBase ObjectPoolingBase => objectPoolingBase;
 
+    protected virtual void Awake()
+    {
+        if (_spawnPoint == null)
+            _spawnPoint = transform;
+
+        objectPoolingBase = GetComponent<ObjectPoolingBase>();
+    }
+    private void Start()
+    {
+        StartCoroutine(GenerateCoroutine());
+    }
+
+    protected virtual IEnumerator GenerateCoroutine()
+    {
         while (true)
         {
-            GameObject obj = objectPooling.GetPooledObject();
-            obj.SetActive(true);
-            obj.transform.position = transform.position;
+            // 최대치에 도달하면 대기
+            if (nowCount >= maxCount)
+            {
+                yield return new WaitForSeconds(intervalTime);
+                continue;
+            }
 
-            yield return new WaitForSeconds(0.1f);
+            var generatedObj = ObjectPoolingBase.GetObject<GeneratableObject>();
+
+            if (generatedObj != null)
+            {
+                generatedObj.OnGenerated(this);
+
+                // ** init **
+                generatedObj.transform.position = _spawnPoint.position;
+                generatedObj.transform.rotation = _spawnPoint.rotation;
+                generatedObj.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                // wait
+                yield return new WaitForSeconds(intervalTime);
+            }
+            else
+            {
+                Debug.LogWarning($"generated object is invalid\n{StackTraceUtility.ExtractStackTrace()}");
+                yield break;
+            }
+
+            yield return null;
         }
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace JoonyleGameDevKit
 {
+    // Line
     public struct Line2D
     {
         public Vector2 pointA;
@@ -16,9 +17,6 @@ namespace JoonyleGameDevKit
         /// <summary>
         /// Linearly interpolates between the two points of the line.
         /// </summary>
-        /// <param name="line">The line to interpolate along.</param>
-        /// <param name="t">The interpolation factor (0 to 1).</param>
-        /// <returns>The interpolated point.</returns>
         public static Vector2 Lerp(Line2D line, float t)
         {
             t = Mathf.Clamp01(t);
@@ -43,9 +41,6 @@ namespace JoonyleGameDevKit
         /// <summary>
         /// Linearly interpolates between the two points of the line.
         /// </summary>
-        /// <param name="line">The line to interpolate along.</param>
-        /// <param name="t">The interpolation factor (0 to 1).</param>
-        /// <returns>The interpolated point.</returns>
         public static Vector3 Lerp(Line3D line, float t)
         {
             t = Mathf.Clamp01(t);
@@ -57,4 +52,6 @@ namespace JoonyleGameDevKit
                 pointA.z + (pointB.z - pointA.z) * t);
         }
     }
+
+    // ???
 }
