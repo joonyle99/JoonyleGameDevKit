@@ -1,5 +1,5 @@
 public interface IGeneratable
 {
-    public void OnGenerated(ObjectGenerator objectGenerator);
+    public void OnGenerated(ItemGenerator itemGenerator);
     public void OnEliminated();
 }
