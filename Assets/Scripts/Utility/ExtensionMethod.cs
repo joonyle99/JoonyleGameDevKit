@@ -23,12 +23,11 @@ namespace JoonyleGameDevKit
         {
             return new Vector3(vec.x, y, vec.y);
         }
-
-        public static Vector3 Combine(this Vector2 v2, Vector3 v3)
+        public static Vector3 CombineWith(this Vector2 v2, Vector3 v3)
         {
             return new Vector3(v2.x + v3.x, v2.y + v3.y, v3.z);
         }
-        public static Vector3 Combine(this Vector3 v3, Vector2 v2)
+        public static Vector3 CombineWith(this Vector3 v3, Vector2 v2)
         {
             return new Vector3(v3.x + v2.x, v3.y + v2.y, v3.z);
         }
@@ -85,6 +84,7 @@ namespace JoonyleGameDevKit
             return 1 << layerMaskNumber;
         }
 
+        // String
         public static int ExtractNumber(this string str)
         {
             // 문자열에서 연속된 숫자를 찾는다

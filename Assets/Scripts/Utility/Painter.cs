@@ -32,18 +32,18 @@ namespace JoonyleGameDevKit
         public static void GizmosDrawVerticalAxis(Vector3 center, Color? color = null, float lengthMultiplier = 1f)
         {
             Gizmos.color = color ?? Color.white;
-            Gizmos.DrawLine(center.Combine(SOUTH_VEC * lengthMultiplier), center.Combine(NORTH_VEC * lengthMultiplier));
+            Gizmos.DrawLine(center.CombineWith(SOUTH_VEC * lengthMultiplier), center.CombineWith(NORTH_VEC * lengthMultiplier));
         }
         public static void GizmosDrawHorizontalAxis(Vector3 center, Color? color = null, float lengthMultiplier = 1f)
         {
             Gizmos.color = color ?? Color.white;
-            Gizmos.DrawLine(center.Combine(WEST_VEC * lengthMultiplier), center.Combine(EAST_VEC * lengthMultiplier));
+            Gizmos.DrawLine(center.CombineWith(WEST_VEC * lengthMultiplier), center.CombineWith(EAST_VEC * lengthMultiplier));
         }
         public static void GizmosDrawArrow(Vector3 start, Vector2 dir, float arrowAngle = 20f, Color? bodyColor = null, Color? headColor = null, float bodyLength = 3f, float headLength = 1f)
         {
             Gizmos.color = bodyColor ?? Color.white;
 
-            Vector3 centerPoint = start.Combine(dir.normalized * bodyLength);
+            Vector3 centerPoint = start.CombineWith(dir.normalized * bodyLength);
             Gizmos.DrawLine(start, centerPoint);
 
             Gizmos.color = headColor ?? Color.white;
