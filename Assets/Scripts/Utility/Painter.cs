@@ -43,13 +43,17 @@ namespace JoonyleGameDevKit
         {
             Gizmos.color = bodyColor ?? Color.white;
 
-            Vector3 centerPoint = start.CombineWith(dir.normalized * bodyLength);
+            Vector3 centerPoint = start.CombineWith(dir * bodyLength);
             Gizmos.DrawLine(start, centerPoint);
 
             Gizmos.color = headColor ?? Color.white;
 
-            Vector3 leftPoint = centerPoint + Quaternion.Euler(0f, 0f, -arrowAngle) * Vector3.down * headLength;
-            Vector3 rightPoint = centerPoint + Quaternion.Euler(0f, 0f, arrowAngle) * Vector3.down * headLength;
+            var oppositeDir = (-1) * dir;
+
+            // 시계 방향이 (-) 회전
+            Vector3 leftPoint = centerPoint + Quaternion.Euler(0f, 0f, -arrowAngle) * oppositeDir * headLength;
+            // 반시계 방향이 (+) 회전
+            Vector3 rightPoint = centerPoint + Quaternion.Euler(0f, 0f, arrowAngle) * oppositeDir * headLength;
 
             Gizmos.DrawLine(centerPoint, leftPoint);
             Gizmos.DrawLine(centerPoint, rightPoint);
