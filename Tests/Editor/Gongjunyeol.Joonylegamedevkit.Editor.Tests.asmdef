@@ -1,0 +1,14 @@
+{
+    "name": "Gongjunyeol.Joonylegamedevkit.Editor.Tests",
+    "references": [
+        "Gongjunyeol.Joonylegamedevkit.Editor",
+        "Gongjunyeol.Joonylegamedevkit"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

@@ -1,0 +1,11 @@
+{
+    "name": "Gongjunyeol.Joonylegamedevkit.Tests",
+    "references": [
+        "Gongjunyeol.Joonylegamedevkit"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

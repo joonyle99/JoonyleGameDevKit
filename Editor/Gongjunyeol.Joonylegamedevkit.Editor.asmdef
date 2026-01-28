@@ -1,0 +1,10 @@
+{
+    "name": "Gongjunyeol.Joonylegamedevkit.Editor",
+    "references": [
+      "Gongjunyeol.Joonylegamedevkit"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}
