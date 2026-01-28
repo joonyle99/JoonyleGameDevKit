@@ -1,7 +1,7 @@
 {
-    "name": "Gongjunyeol.Joonylegamedevkit.Tests",
+    "name": "Joonyle.GameDevKit.Tests",
     "references": [
-        "Gongjunyeol.Joonylegamedevkit"
+        "Joonyle.GameDevKit"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"

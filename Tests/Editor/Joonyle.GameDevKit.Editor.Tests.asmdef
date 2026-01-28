@@ -1,8 +1,8 @@
 {
-    "name": "Gongjunyeol.Joonylegamedevkit.Editor.Tests",
+    "name": "Joonyle.GameDevKit.Editor.Tests",
     "references": [
-        "Gongjunyeol.Joonylegamedevkit.Editor",
-        "Gongjunyeol.Joonylegamedevkit"
+        "Joonyle.GameDevKit.Editor",
+        "Joonyle.GameDevKit"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"

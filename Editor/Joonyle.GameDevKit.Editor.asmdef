@@ -1,7 +1,7 @@
 {
-    "name": "Gongjunyeol.Joonylegamedevkit.Editor",
+    "name": "Joonyle.GameDevKit.Editor",
     "references": [
-      "Gongjunyeol.Joonylegamedevkit"
+        "Joonyle.GameDevKit"
     ],
     "includePlatforms": [
         "Editor"
