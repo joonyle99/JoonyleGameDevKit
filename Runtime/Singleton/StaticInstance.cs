@@ -8,36 +8,54 @@ namespace JoonyleGameDevKit
     /// </summary>
     public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour
     {
-        /// <summary>
-        /// 어디에서나 접근할 수 있는 정적 인스턴스
-        /// </summary>
-        /// <remarks>
-        /// 전역 변수가 아닌 정적 변수를 사용하여 유일성을 보장합니다.
-        /// </remarks>
-        public static T Instance { get; private set; }
-        public static bool IsInstanceExist
+        protected static T _instance;
+        public static T Instance
         {
             get
             {
-                if (Instance == null)
+                if (_isQuitting == true)
                 {
-                    // throw new System.Exception("Instance is null");
-                    // Debug.LogWarning($"{Instance.GetType().Name} is null");
-                    return false;
+                    return null;
                 }
-                else
+                
+                // Lazy initialization: 인스턴스가 없을 때만 생성합니다
+                if (_instance == null)
                 {
-                    return true;
+                    // 씬에서 이미 존재하는 인스턴스를 먼저 찾습니다
+                    _instance = FindAnyObjectByType<T>();
+
+                    if (_instance == null)
+                    {
+                        // 씬에 없으면 새 GameObject를 생성하여 인스턴스 추가합니다
+                        var gameObject = new GameObject();
+                        gameObject.name = typeof(T).Name;
+                        _instance = gameObject.AddComponent<T>();
+                    }
                 }
+                
+                return _instance;
             }
         }
 
-        protected virtual void Awake() => Instance = this as T;
+        private static bool _isQuitting;
+
+        protected virtual void Awake()
+        {
+            _instance = this as T;
+        }
+        protected virtual void OnDestroy()
+        {
+            // 내가 진짜 싱글톤 인스턴스일 때만 정리합니다
+            if (_instance == this)
+            {
+                _instance = null;
+            }
+        }
 
         protected virtual void OnApplicationQuit()
         {
-            Instance = null;
-            Destroy(this.gameObject);
+            _instance = null;
+            _isQuitting = true;
         }
     }
 }

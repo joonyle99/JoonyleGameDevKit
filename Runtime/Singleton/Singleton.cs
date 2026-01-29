@@ -10,10 +10,11 @@ namespace JoonyleGameDevKit
     {
         protected override void Awake()
         {
-            // 이미 인스턴스가 존재하면 this 객체를 파괴하여 '싱글톤'을 보장합니다.
-            if (Instance != null)
+            // 이미 인스턴스가 존재하면 this 객체를 파괴하여 '싱글톤'을 보장합니다
+            if (_instance != null)
             {
                 Destroy(this.gameObject);
+                return;
             }
 
             base.Awake();

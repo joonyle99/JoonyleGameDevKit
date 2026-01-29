@@ -13,8 +13,8 @@ namespace JoonyleGameDevKit
         {
             base.Awake();
 
-            // 해당 싱글톤 객체를 씬이 변경되어도 파괴되지 않도록 설정합니다.
-            DontDestroyOnLoad(gameObject);
+            // 해당 싱글톤 객체를 씬이 변경되어도 파괴되지 않도록 설정합니다
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }
