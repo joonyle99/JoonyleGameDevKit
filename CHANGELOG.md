@@ -5,6 +5,15 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-01-30
+
+### Added
+
+- **State** 모듈
+  - `IState<T>`: 상태 인터페이스
+  - `StateBase<T>`: 상태 기본 추상 클래스
+  - `StateMachine<T>`: 유한 상태 머신 (FSM)
+
 ## [1.0.0] - 2026-01-29
 
 ### Added
