@@ -8,6 +8,13 @@ namespace JoonyleGameDevKit
     /// </summary>
     public abstract class StaticInstance<T> : MonoBehaviour where T : MonoBehaviour
     {
+        /// <summary>
+        /// 전역적으로 접근하기 위해 static 키워드를 사용한다
+        /// </summary>
+        /// <remarks>
+        /// 1. 유일성을 보장하기 위해서 전역 변수가 아닌 정적 변수를 사용한다
+        /// 2. 초기화 시점을 보장하기 위해서 전역 변수가 아닌 정적 변수를 사용한다 (전역 변수는 프로그램 시작 전에 초기화, 정적 변수는 멤버(지역)로 사용할 때 생명 주기에 맞추거나 lazy Initialize 가능하다)
+        /// </remarks>
         protected static T _instance;
         public static T Instance
         {
