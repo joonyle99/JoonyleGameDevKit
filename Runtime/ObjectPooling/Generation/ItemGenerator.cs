@@ -55,7 +55,7 @@ namespace JoonyleGameDevKit
                     continue;
                 }
 
-                var item = ObjectPooling.GetObject<ItemObject>();
+                var item = ObjectPooling.GetObject<ItemBase>();
 
                 if (item != null)
                 {

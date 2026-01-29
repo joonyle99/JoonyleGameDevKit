@@ -2,7 +2,13 @@ using UnityEngine;
 
 namespace JoonyleGameDevKit
 {
-    public class ItemObject : MonoBehaviour, IGeneratable
+    public interface IGeneratable
+    {
+        public void OnGenerated(ItemGenerator itemGenerator);
+        public void OnEliminated();
+    }
+
+    public class ItemBase : MonoBehaviour, IGeneratable
     {
         private ItemGenerator _fromGenerator;
         public ItemGenerator FromGenerator => _fromGenerator;
