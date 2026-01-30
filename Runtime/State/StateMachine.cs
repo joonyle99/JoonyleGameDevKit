@@ -51,7 +51,7 @@ namespace JoonyleGameDevKit
         public StateBase<T> CurrState => _currState;
 
         /// <summary>
-        /// 상태를 등록합니다.
+        /// 상태를 인스턴스화
         /// </summary>
         public void AddState(StateBase<T> state)
         {
@@ -59,7 +59,7 @@ namespace JoonyleGameDevKit
         }
 
         /// <summary>
-        /// 전이를 등록합니다.
+        /// AddState로 상태를 먼저 추가합니다
         /// </summary>
         public void AddTransition<TStateFrom, TStateTo>(Func<bool> condition)
             where TStateFrom : StateBase<T>
@@ -79,7 +79,7 @@ namespace JoonyleGameDevKit
         }
 
         /// <summary>
-        /// 사용자가 직접 호출할 때 (컴파일 타임)
+        /// 사용자가 직접 호출할 때 사용합니다 (컴파일 타임)
         /// </summary>
         /// <remarks>
         /// 제네릭 타입을 사용
@@ -95,10 +95,10 @@ namespace JoonyleGameDevKit
         }
 
         /// <summary>
-        /// FSM 내부에서 Transition 처리할 때 (런타임)
+        /// FSM 내부에서 Transition 처리할 때 사용합니다 (런타임)
         /// </summary>
         /// <remarks>
-        /// 타입 인스턴스 사용
+        /// 상태 인스턴스 사용
         /// </remarks>
         public void ChangeState(StateBase<T> state)
         {
@@ -115,13 +115,13 @@ namespace JoonyleGameDevKit
             // 전이 조건부터 체크한다
             foreach (var transition in _transitions)
             {
-                StateBase<T> from = transition.From;
+                var from = transition.From;
                 if (_currState == from)
                 {
                     var condition = transition.Condition.Invoke();
                     if (condition == true)
                     {
-                        StateBase<T> to = transition.To;
+                        var to = transition.To;
                         ChangeState(to);
                         break;
                     }
