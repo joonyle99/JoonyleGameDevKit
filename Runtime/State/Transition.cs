@@ -1,31 +1,36 @@
 using System;
 using UnityEngine;
-using JoonyleGameDevKit;
 
-public class Transition<T> where T : MonoBehaviour
+namespace JoonyleGameDevKit
 {
     /// <summary>
-    /// 
+    /// 상태 전이 정보를 담는 클래스
     /// </summary>
-    private StateBase<T> _from;
-    public StateBase<T> From => _from;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private StateBase<T> _to;
-    public StateBase<T> To => _to;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    private Func<bool> _condition;
-    public Func<bool> Condition => _condition;
-
-    public Transition(StateBase<T> from, StateBase<T> to, Func<bool> condition)
+    public class Transition<T> where T : MonoBehaviour
     {
-        _from = from;
-        _to = to;
-        _condition = condition;
+        /// <summary>
+        /// 전이 시작 상태
+        /// </summary>
+        private StateBase<T> _from;
+        public StateBase<T> From => _from;
+
+        /// <summary>
+        /// 전이 도착 상태
+        /// </summary>
+        private StateBase<T> _to;
+        public StateBase<T> To => _to;
+
+        /// <summary>
+        /// 전이 조건
+        /// </summary>
+        private Func<bool> _condition;
+        public Func<bool> Condition => _condition;
+
+        public Transition(StateBase<T> from, StateBase<T> to, Func<bool> condition)
+        {
+            _from = from;
+            _to = to;
+            _condition = condition;
+        }
     }
 }

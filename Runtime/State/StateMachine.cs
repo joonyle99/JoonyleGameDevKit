@@ -9,7 +9,7 @@ namespace JoonyleGameDevKit
     // ============================================
     //
     // [한계점]
-    // 1. 애니메이션 블랜딩 처리가 어려움
+    // 1. 애니메이션 블랜딩 대처가 어려움
     // 2. 상태 수 증가 시 복잡도 급증
     //    - 전이 개수: 최대 N(N-1)개 (N = 상태 수)
     //    - 전이 조건 관리가 기하급수적으로 어려워짐 (&&와 ||가 덕지 덕지)
@@ -40,7 +40,7 @@ namespace JoonyleGameDevKit
         private Dictionary<Type, StateBase<T>> _states = new();
 
         /// <summary>
-        /// 
+        /// 등록된 전이 목록
         /// </summary>
         private List<Transition<T>> _transitions = new();
 
@@ -59,7 +59,7 @@ namespace JoonyleGameDevKit
         }
 
         /// <summary>
-        /// 
+        /// 전이를 등록합니다.
         /// </summary>
         public void AddTransition<TStateFrom, TStateTo>(Func<bool> condition)
             where TStateFrom : StateBase<T>
@@ -70,7 +70,7 @@ namespace JoonyleGameDevKit
 
             if (hasFrom == false || hasTo == false)
             {
-                Debug.LogWarning($"");
+                Debug.LogWarning($"AddTransition 실패: {typeof(TStateFrom).Name} 또는 {typeof(TStateTo).Name} 상태가 등록되지 않았습니다.");
                 return;
             }
 
