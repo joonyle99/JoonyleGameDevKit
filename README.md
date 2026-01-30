@@ -17,7 +17,7 @@ https://github.com/joonyle99/JoonyleGameDevKit.git
 특정 버전을 설치하려면 태그를 지정합니다:
 
 ```
-https://github.com/joonyle99/JoonyleGameDevKit.git#v1.1.0
+https://github.com/joonyle99/JoonyleGameDevKit.git#v1.2.0
 ```
 
 ## Requirements
@@ -54,9 +54,9 @@ public class AudioManager : PersistentSingleton<AudioManager>
 
 | 클래스 | 설명 |
 |--------|------|
-| `IState<T>` | 상태 인터페이스 |
 | `StateBase<T>` | 상태 기본 추상 클래스 |
 | `StateMachine<T>` | 상태 머신 관리 클래스 |
+| `Transition<T>` | 상태 전이 조건 클래스 |
 
 ```csharp
 // 상태 정의
@@ -77,12 +77,20 @@ public class Player : MonoBehaviour
         _fsm = new StateMachine<Player>(this);
         _fsm.AddState(new IdleState());
         _fsm.AddState(new MoveState());
+
+        // 전이 조건 등록
+        _fsm.AddTransition<IdleState, MoveState>(() => IsMoving);
+        _fsm.AddTransition<MoveState, IdleState>(() => !IsMoving);
     }
 
     void Start() => _fsm.ChangeState<IdleState>();
     void Update() => _fsm.Update();
 }
 ```
+
+**권장 사용 사례:**
+- FSM 적합: 5개 미만의 상태, 입력 기반의 단순한 전이 조건
+- BT 권장: 복잡한 AI 로직에는 Behaviour Tree 사용 권장
 
 ### ObjectPooling
 

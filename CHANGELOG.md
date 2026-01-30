@@ -5,6 +5,22 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-01-30
+
+### Added
+
+- `Transition<T>`: 상태 전이 조건을 관리하는 클래스
+- `StateMachine<T>.AddTransition<TFrom, TTo>(condition)`: 전이 조건 등록 메서드
+- FSM 한계점 및 권장 사용 사례에 대한 문서화 주석
+
+### Changed
+
+- State 예제 폴더 이름 변경: `Behaviour` → `Example`
+
+### Removed
+
+- `IState<T>` 인터페이스 제거 (`StateBase<T>`만 사용)
+
 ## [1.1.0] - 2026-01-30
 
 ### Added
