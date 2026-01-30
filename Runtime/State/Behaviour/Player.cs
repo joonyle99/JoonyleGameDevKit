@@ -12,6 +12,9 @@ namespace JoonyleGameDevKit
             _fsm.AddState(new IdleState());
             _fsm.AddState(new MoveState());
             _fsm.AddState(new JumpState());
+            _fsm.AddTransition<IdleState, MoveState>(ConditionFunc);
+            _fsm.AddTransition<MoveState, JumpState>(ConditionFunc);
+            _fsm.AddTransition<JumpState, IdleState>(ConditionFunc);
         }
         private void Start()
         {
@@ -20,6 +23,11 @@ namespace JoonyleGameDevKit
         private void Update()
         {
             _fsm?.Update();
+        }
+        
+        private bool ConditionFunc()
+        {
+            return false;
         }
     }
 }
