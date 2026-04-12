@@ -4,15 +4,10 @@ using System.Collections.Generic;
 
 public enum SfxType
 {
-    Mining1,
-    Mining2,
-    Ore,
-    Cuff,
-    Money,
-    Prisoner,
-    Upgrade,
-    StackOn,
-    StackFull,
+    Landed = 0,
+    Score = 5,
+    Wrecked = 10,
+    Clear = 15,
 }
 
 [System.Serializable]
