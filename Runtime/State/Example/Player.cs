@@ -22,7 +22,7 @@ namespace JoonyleGameDevKit
         }
         private void Update()
         {
-            _fsm?.Update();
+            _fsm?.Update(Time.deltaTime);
         }
         
         private bool ConditionFunc()

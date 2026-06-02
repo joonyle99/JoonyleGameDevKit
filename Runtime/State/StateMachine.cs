@@ -110,7 +110,7 @@ namespace JoonyleGameDevKit
             _currState?.Enter(_owner);
         }
 
-        public void Update()
+        public void Update(float deltaTime)
         {
             // 전이 조건부터 체크한다
             foreach (var transition in _transitions)
