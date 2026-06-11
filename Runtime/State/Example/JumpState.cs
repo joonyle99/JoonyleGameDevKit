@@ -14,7 +14,7 @@ namespace JoonyleGameDevKit
             Debug.Log($"Exit JumpState - owner type: {owner.GetType()}");
         }
 
-        public override void Update(Player owner)
+        public override void Update(Player owner, float deltaTime)
         {
             Debug.Log($"Update JumpState - owner type: {owner.GetType()}");
         }

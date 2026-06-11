@@ -110,6 +110,11 @@ namespace JoonyleGameDevKit
             _currState?.Enter(_owner);
         }
 
+        public void FixedUpdate(float fixedDeltaTime)
+        {
+            _currState?.FixedUpdate(_owner, fixedDeltaTime);
+        }
+
         public void Update(float deltaTime)
         {
             // 전이 조건부터 체크한다
@@ -128,7 +133,7 @@ namespace JoonyleGameDevKit
                 }
             }
             
-            _currState?.Update(_owner);
+            _currState?.Update(_owner, deltaTime);
         }
     }
 }

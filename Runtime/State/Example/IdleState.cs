@@ -14,7 +14,7 @@ namespace JoonyleGameDevKit
             Debug.Log($"Exit IdleState - owner type: {owner.GetType()}");
         }
 
-        public override void Update(Player owner)
+        public override void Update(Player owner, float deltaTime)
         {
             Debug.Log($"Update IdleState - owner type: {owner.GetType()}");
         }

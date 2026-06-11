@@ -11,6 +11,8 @@ namespace JoonyleGameDevKit
 
         public abstract void Exit(T owner);
 
-        public abstract void Update(T owner);
+        public virtual void FixedUpdate(T owner, float fixedDeltaTime) { }
+
+        public abstract void Update(T owner, float deltaTime);
     }
 }
