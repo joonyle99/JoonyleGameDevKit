@@ -51,6 +51,12 @@ namespace JoonyleGameDevKit
         public StateBase<T> CurrState => _currState;
 
         /// <summary>
+        /// 이전 상태
+        /// </summary>
+        private StateBase<T> _prevState;
+        public StateBase<T> PrevState => _prevState;
+
+        /// <summary>
         /// 상태를 인스턴스화
         /// </summary>
         public void AddState(StateBase<T> state)
@@ -90,6 +96,7 @@ namespace JoonyleGameDevKit
             if (hasState == false) return;
 
             _currState?.Exit(_owner);
+            _prevState = _currState;
             _currState = targetState;
             _currState?.Enter(_owner);
         }
@@ -106,6 +113,7 @@ namespace JoonyleGameDevKit
             if (hasState == false) return;
 
             _currState?.Exit(_owner);
+            _prevState = _currState;
             _currState = targetState;
             _currState?.Enter(_owner);
         }
