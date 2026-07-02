@@ -1,0 +1,11 @@
+{
+    "name": "Joonyle.GameDevKit.Effects",
+    "references": [
+        "Joonyle.GameDevKit",
+        "DOTween",
+        "DOTweenPro",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}
