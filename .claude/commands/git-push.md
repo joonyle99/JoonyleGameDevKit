@@ -28,7 +28,7 @@ allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git add:*), Bash(git c
      - `MINOR`: 하위 호환되는 기능 추가
      - `PATCH`: 버그 수정, 내부 개선
    - 어떤 레벨로 올릴지 애매하면 진행하기 전에 사용자에게 확인한다
-6. `package.json`의 `"version"` 필드를 새 버전으로 수정하고, 이 변경만 별도 커밋한다: `chore: bump version to vX.Y.Z`
+6. `package.json`의 `"version"` 필드를 새 버전으로 수정하고, `CHANGELOG.md`에 `## [X.Y.Z] - YYYY-MM-DD` 항목을 추가해 이번 배포에 포함된 변경사항을 요약한다(Keep a Changelog 형식, Added/Changed/Fixed 등으로 구분). 두 파일을 함께 커밋한다: `chore: bump version to vX.Y.Z`
 7. push 전 원격 동기화 확인:
    - `git fetch` 후 로컬이 원격보다 뒤처져 있으면 `git pull`(merge)로 먼저 동기화한다
    - merge 중 충돌이 나면 중단하고 충돌 파일을 보여준 뒤 사용자 판단을 기다린다
