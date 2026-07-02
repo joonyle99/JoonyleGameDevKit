@@ -1,0 +1,8 @@
+{
+    "name": "Joonyle.GameDevKit.Samples.StateMachine",
+    "references": [
+        "Joonyle.GameDevKit"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": []
+}

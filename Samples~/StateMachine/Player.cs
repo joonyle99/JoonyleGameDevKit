@@ -1,0 +1,33 @@
+using UnityEngine;
+
+namespace JoonyleGameDevKit
+{
+    public class Player : MonoBehaviour
+    {
+        private StateMachine<Player> _fsm;
+
+        private void Awake()
+        {
+            _fsm = new StateMachine<Player>(this);
+            _fsm.AddState(new IdleState());
+            _fsm.AddState(new MoveState());
+            _fsm.AddState(new JumpState());
+            _fsm.AddTransition<IdleState, MoveState>(ConditionFunc);
+            _fsm.AddTransition<MoveState, JumpState>(ConditionFunc);
+            _fsm.AddTransition<JumpState, IdleState>(ConditionFunc);
+        }
+        private void Start()
+        {
+            _fsm?.ChangeState<IdleState>();
+        }
+        private void Update()
+        {
+            _fsm?.Update(Time.deltaTime);
+        }
+        
+        private bool ConditionFunc()
+        {
+            return false;
+        }
+    }
+}
