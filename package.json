@@ -14,9 +14,11 @@
 		"url": "https://github.com/joonyle99",
 		"email": "gongjunyeol@gmail.com"
 	},
-	"samples": {
-		"displayName": "Example Sample",
-		"description": "Example description",
-		"path": "Samples~/Example"
-	}
+	"samples": [
+		{
+			"displayName": "State Machine",
+			"description": "Finite state machine (FSM) usage example with a Player and Idle / Move / Jump states",
+			"path": "Samples~/StateMachine"
+		}
+	]
 }
