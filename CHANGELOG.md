@@ -5,6 +5,21 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-07-03
+
+### Added
+- `Runtime/Input` — `IPointerInput`/`PointerInput`(Input System 기반 마우스/터치 통합 포인터 입력. 탭/패스트탭/드래그 판정, UI 위에서 시작한 눌림 차단)
+- `Runtime/State` — `GameStateController<T>`/`IGameStateListener<T>`(enum 기반의 가벼운 씬 흐름 상태 컨트롤러)
+- `Runtime/Manager/Effect` — `EffectManagerBase<TVfx, TSelf>`(프로젝트별 VFX enum을 주입받는 ObjectPool 기반 이펙트 매니저 베이스)
+- `Runtime/Manager/UserData` — `UserDataManagerBase<TData, TSelf>`(유저 데이터 저장/로드 매니저 베이스)
+- `Runtime/Effect` — `EffectBase`/`EffectAnimator`/`EffectParticle`(풀링 가능한 이펙트 컴포넌트 베이스)
+- `Samples~` — Effect / Sound / UserData 매니저 사용 예제 샘플 3종 등록
+
+### Changed
+- `Runtime/Effects` 폴더를 `Runtime/Effect`로 이름 변경 (DamagePopup/DamagePopupPool/SpriteExploder 이동)
+- asmdef에 `Unity.InputSystem` 참조 추가, UI Feedback이 사용하던 `UnityEngine.UI` 참조 누락 보완
+- `package.json`에 `com.unity.inputsystem`/`com.unity.ugui` 의존성 명시
+
 ## [1.4.0] - 2026-07-03
 
 ### Added
