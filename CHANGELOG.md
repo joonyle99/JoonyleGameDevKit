@@ -5,6 +5,11 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.1] - 2026-07-04
+
+### Fixed
+- asmdef에 `DOTweenPro.Scripts` 어셈블리 참조 추가 (DOTween Pro의 Create ASMDEF로 생성되는 스크립트 어셈블리 대응) 및 참조 순서 정리
+
 ## [1.6.0] - 2026-07-03
 
 ### Added
