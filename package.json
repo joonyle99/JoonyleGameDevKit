@@ -37,6 +37,11 @@
 			"displayName": "User Data Manager",
 			"description": "UserDataManagerBase usage example with a serializable UserData class",
 			"path": "Samples~/UserData"
+		},
+		{
+			"displayName": "Bootstrapper",
+			"description": "Prebuilt Bootstrapper prefab under Resources/Prefabs so RuntimeInitializer can load it automatically after import",
+			"path": "Samples~/Bootstrapper"
 		}
 	]
 }
