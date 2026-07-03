@@ -2,11 +2,12 @@
     "name": "Joonyle.GameDevKit",
     "references": [
         "DOTween",
-        "DOTween.Modules",
         "DOTweenPro",
-        "Unity.TextMeshPro",
+        "DOTween.Modules",
+        "DOTweenPro.Scripts",
+        "UnityEngine.UI",
         "Unity.InputSystem",
-        "UnityEngine.UI"
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": []
