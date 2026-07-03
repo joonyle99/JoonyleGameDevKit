@@ -5,6 +5,15 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-07-03
+
+### Added
+- `Runtime/Manager/Sound` — `SoundManagerBase<TBgm, TSfx, TSelf>`(프로젝트별 BGM/SFX enum을 주입받는 사운드 매니저 베이스, DOTween 기반 BGM 페이드, on/off 설정 저장, 일시정지 지원)
+- `Runtime/UI` — `UIPanel`(CanvasGroup 기반 표시/상호작용 제어), `UI/Feedback`(색상/스케일/오버레이/사운드/커스텀 함수 Selectable 피드백), `UI/Motion`(DOTween Sequence 기반 등장/유휴 모션)
+
+### Changed
+- `Joonyle.GameDevKit.Effects` 전용 asmdef를 제거하고 DOTween/TextMeshPro 참조를 메인 `Joonyle.GameDevKit` asmdef로 통합 (Sound/UI 쪽에서도 DOTween 의존이 필요해짐에 따라 어셈블리 분리 실익 감소)
+
 ## [1.3.0] - 2026-07-02
 
 ### Added
