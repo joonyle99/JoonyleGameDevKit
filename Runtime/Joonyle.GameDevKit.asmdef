@@ -4,7 +4,9 @@
         "DOTween",
         "DOTween.Modules",
         "DOTweenPro",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": []

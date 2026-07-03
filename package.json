@@ -4,7 +4,10 @@
 	"description": "Unity game development kit",
 	"version": "1.4.0",
 	"unity": "6000.0",
-	"dependencies": {},
+	"dependencies": {
+		"com.unity.inputsystem": "1.11.2",
+		"com.unity.ugui": "2.0.0"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/joonyle99/JoonyleGameDevKit.git"
