@@ -22,6 +22,21 @@
 			"displayName": "State Machine",
 			"description": "Finite state machine (FSM) usage example with a Player and Idle / Move / Jump states",
 			"path": "Samples~/StateMachine"
+		},
+		{
+			"displayName": "Effect Manager",
+			"description": "EffectManagerBase usage example with a project-specific VfxType enum",
+			"path": "Samples~/Effect"
+		},
+		{
+			"displayName": "Sound Manager",
+			"description": "SoundManagerBase usage example with project-specific BgmType / SfxType enums",
+			"path": "Samples~/Sound"
+		},
+		{
+			"displayName": "User Data Manager",
+			"description": "UserDataManagerBase usage example with a serializable UserData class",
+			"path": "Samples~/UserData"
 		}
 	]
 }
