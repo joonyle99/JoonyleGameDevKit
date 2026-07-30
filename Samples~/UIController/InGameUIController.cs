@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace JoonyleGameDevKit
 {
-    public class InGameUIController : MonoBehaviour, IGameStateListener<InGameState>
+    public class InGameUIController : MonoBehaviour
     {
         private void OnDestroy()
         {
@@ -12,11 +12,6 @@ namespace JoonyleGameDevKit
         public void Initialize()
         {
 
-        }
-
-        public void OnStateChanged(InGameState prevState, InGameState currState)
-        {
-            
         }
     }
 }
