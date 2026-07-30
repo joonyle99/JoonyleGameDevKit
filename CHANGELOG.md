@@ -5,6 +5,14 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-07-30
+
+### Added
+- `Runtime/Effect` — `IrisMaskTransition`(focus 위치를 추적하는 원형 SpriteMask를 확대/축소해 화면을 열고 닫는 이리스 전환 연출)
+
+### Changed
+- `Samples~/UIController`의 `InGameUIController`/`OutGameUIController`에서 `IGameStateListener<T>` 구현 제거
+
 ## [1.7.0] - 2026-07-30
 
 ### Added
