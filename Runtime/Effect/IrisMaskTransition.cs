@@ -11,12 +11,12 @@ namespace JoonyleGameDevKit
     public class IrisMaskTransition : MonoBehaviour
     {
         [SerializeField] private Transform _mask;
-        [SerializeField] private float _openScale = 30f;
-        [SerializeField] private float _duration = 0.45f;
-        [SerializeField] private Ease _easeIn = Ease.OutCubic;
-        [SerializeField] private Ease _easeOut = Ease.InCubic;
+        [SerializeField] private float _openScale = 10f;
+        [SerializeField] private float _duration = 1.5f;
+        [SerializeField] private Ease _easeIn = Ease.InCubic;
+        [SerializeField] private Ease _easeOut = Ease.OutCubic;
         [SerializeField] private float _delayTime = 0.5f;
-        [SerializeField] private float _callbackDelayTime = 0.5f;
+        [SerializeField] private float _callbackDelayTime = 0.8f;
 
         private Transform _focus;
         private Tween _tween;
