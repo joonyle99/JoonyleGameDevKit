@@ -5,6 +5,14 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-07-30
+
+### Added
+- `Runtime/Camera` — `CameraControllerBase`(카메라 크기 계산 등 공통 기능 제공. 프로젝트별 이동 로직은 상속받은 `CameraController`에서 구현)
+- `Runtime/Parallax` — `ParallaxBackground`/`ParallaxLayer`(카메라 이동에 따라 레이어별 이동 비율을 다르게 적용하는 패럴랙스 배경)
+- `Runtime/UI/Motion` — `PanelToggler`(UI 패널 토글 모션)
+- `Samples~` — Camera Controller / Game Manager / UI Controller 사용 예제 샘플 3종 등록
+
 ## [1.6.2] - 2026-07-30
 
 ### Changed
