@@ -55,7 +55,7 @@
 		},
 		{
 			"displayName": "UI Controller",
-			"description": "InGameUIController / OutGameUIController usage example implementing IGameStateListener",
+			"description": "InGameUIController / OutGameUIController usage example",
 			"path": "Samples~/UIController"
 		}
 	]
