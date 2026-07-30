@@ -42,6 +42,21 @@
 			"displayName": "Bootstrapper",
 			"description": "Prebuilt Bootstrapper prefab under Resources/Prefabs so RuntimeInitializer can load it automatically after import",
 			"path": "Samples~/Bootstrapper"
+		},
+		{
+			"displayName": "Camera Controller",
+			"description": "CameraControllerBase usage example with a project-specific CameraController subclass",
+			"path": "Samples~/Camera"
+		},
+		{
+			"displayName": "Game Manager",
+			"description": "InGameManager / OutGameManager usage example with project-specific game state enums",
+			"path": "Samples~/GameManager"
+		},
+		{
+			"displayName": "UI Controller",
+			"description": "InGameUIController / OutGameUIController usage example implementing IGameStateListener",
+			"path": "Samples~/UIController"
 		}
 	]
 }
