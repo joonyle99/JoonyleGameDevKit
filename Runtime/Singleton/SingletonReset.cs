@@ -27,7 +27,7 @@ namespace JoonyleGameDevKit
         /// <summary>
         /// 플레이 모드 진입 시 실행할 리셋 동작을 등록합니다
         /// </summary>
-        /// <param name="owner">등록 주체 타입. 같은 타입으로 다시 등록하면 덮어씁니다</param>
+        /// <param name="owner">정적 상태를 소유한 타입. 같은 타입으로 다시 등록하면 덮어씁니다</param>
         /// <param name="reset">되돌릴 동작</param>
         public static void Register(Type owner, Action reset)
         {
@@ -54,6 +54,22 @@ namespace JoonyleGameDevKit
                     Debug.LogError($"Failed to reset static state of {pair.Key}: {e}");
                 }
             }
+
+#if UNITY_EDITOR
+            // 정적 생성자는 타입을 처음 사용할 때(Awake) 실행되고 그건 SubsystemRegistration보다 뒤다.
+            // 따라서 도메인이 새로 만들어진 직후의 첫 진입은 0으로 찍히는 것이 정상이다.
+            var names = new string[_resets.Count];
+            var index = 0;
+            foreach (var pair in _resets)
+            {
+                names[index++] = pair.Key.Name;
+            }
+
+            Debug.Log($"<color=green>Reset Statics · Singleton</color> - {_resets.Count} types\n"
+                + (_resets.Count == 0
+                    ? "도메인이 새로 생성되어 되돌릴 대상이 없습니다 (다음 진입부터 등록됨)"
+                    : string.Join(", ", names)));
+#endif
         }
     }
 }

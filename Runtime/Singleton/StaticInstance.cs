@@ -55,7 +55,7 @@ namespace JoonyleGameDevKit
         /// </remarks>
         static StaticInstance()
         {
-            SingletonReset.Register(typeof(StaticInstance<T>), () =>
+            SingletonReset.Register(typeof(T), () =>
             {
                 _instance = null;
                 _isQuitting = false;
