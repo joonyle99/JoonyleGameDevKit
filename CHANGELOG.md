@@ -5,6 +5,14 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2026-08-10
+
+### Added
+- `Runtime/Singleton` — `SingletonReset`(플레이 모드 진입 시 실행할 정적 상태 리셋 동작을 등록하는 등록소. `RuntimeInitializeOnLoadMethod`를 쓸 수 없는 제네릭 클래스를 대신해 호출)
+
+### Fixed
+- Domain Reload를 끈 상태에서 플레이 모드에 재진입하면 `StaticInstance<T>`의 `_instance`/`_isQuitting`이 이전 세션 값을 유지해 `Instance`가 계속 `null`을 반환하던 문제
+
 ## [1.8.1] - 2026-07-30
 
 ### Fixed
