@@ -46,6 +46,22 @@ namespace JoonyleGameDevKit
 
         private static bool _isQuitting;
 
+        /// <summary>
+        /// Domain Reload를 끈 상태에서도 플레이 모드에 재진입할 때 정적 상태가 초기화되도록 등록합니다
+        /// </summary>
+        /// <remarks>
+        /// 1. 정적 생성자는 닫힌 제네릭 타입(T)마다 도메인당 한 번만 실행되므로 중복 등록되지 않는다
+        /// 2. OnApplicationQuit은 에디터에서 플레이를 정지할 때도 호출되므로, _isQuitting을 되돌리지 않으면 다음 세션부터 Instance가 계속 null을 반환한다
+        /// </remarks>
+        static StaticInstance()
+        {
+            SingletonReset.Register(typeof(StaticInstance<T>), () =>
+            {
+                _instance = null;
+                _isQuitting = false;
+            });
+        }
+
         protected virtual void Awake()
         {
             _instance = this as T;
