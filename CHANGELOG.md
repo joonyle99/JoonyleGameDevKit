@@ -5,6 +5,12 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.1] - 2026-08-10
+
+### Changed
+- `StaticInstance<T>`가 `SingletonReset`에 등록하는 키를 `StaticInstance<T>` 대신 `T`로 변경해 실제 싱글톤 타입 이름이 드러나도록 정리
+- `SingletonReset.ResetAll`에 에디터 전용 진단 로그 추가 (이번 플레이 모드 진입에서 되돌린 타입 목록 출력)
+
 ## [1.9.0] - 2026-08-10
 
 ### Added
