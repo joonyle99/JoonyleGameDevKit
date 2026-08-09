@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# JetBrains Rider / Visual Studio
+.idea/
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
