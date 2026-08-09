@@ -65,7 +65,7 @@ namespace JoonyleGameDevKit
                 names[index++] = pair.Key.Name;
             }
 
-            Debug.Log($"<color=green>Reset Statics · Singleton</color> - {_resets.Count} types\n"
+            Debug.Log($"<color=cyan>Reset Statics · Singleton</color> - {_resets.Count} types\n"
                 + (_resets.Count == 0
                     ? "도메인이 새로 생성되어 되돌릴 대상이 없습니다 (다음 진입부터 등록됨)"
                     : string.Join(", ", names)));
