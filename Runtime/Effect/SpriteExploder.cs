@@ -1,6 +1,11 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_6000_5_OR_NEWER
+using SpriteId = UnityEngine.EntityId;
+#else
+using SpriteId = System.Int32;
+#endif
 
 namespace JoonyleGameDevKit
 {
@@ -240,10 +245,10 @@ namespace JoonyleGameDevKit
         /// <summary>분할된 스프라이트 캐시의 키. 같은 원본이라도 분할 수가 다르면 다른 결과다</summary>
         private readonly struct SliceKey : IEquatable<SliceKey>
         {
-            private readonly int _spriteId;
+            private readonly SpriteId _spriteId;
             private readonly int _sliceCount;
 
-            public SliceKey(int spriteId, int sliceCount)
+            public SliceKey(SpriteId spriteId, int sliceCount)
             {
                 _spriteId = spriteId;
                 _sliceCount = sliceCount;
@@ -251,7 +256,7 @@ namespace JoonyleGameDevKit
 
             public bool Equals(SliceKey other) => _spriteId == other._spriteId && _sliceCount == other._sliceCount;
             public override bool Equals(object obj) => obj is SliceKey other && Equals(other);
-            public override int GetHashCode() => (_spriteId * 397) ^ _sliceCount;
+            public override int GetHashCode() => (_spriteId.GetHashCode() * 397) ^ _sliceCount;
         }
 
         private sealed class Piece
@@ -672,7 +677,11 @@ namespace JoonyleGameDevKit
 
         private Sprite[] GetSlices(Sprite source, int sliceCount)
         {
+#if UNITY_6000_5_OR_NEWER
+            var key = new SliceKey(source.GetEntityId(), sliceCount);
+#else
             var key = new SliceKey(source.GetInstanceID(), sliceCount);
+#endif
 
             if (_sliceCache.TryGetValue(key, out var cached))
             {
