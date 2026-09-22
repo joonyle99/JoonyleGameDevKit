@@ -155,7 +155,13 @@ namespace JoonyleGameDevKit
 
         public void SetGamePaused(bool paused)
         {
+            // 6000.5부터 FindObjectsSortMode 오버로드가 Obsolete가 되었다 (InstanceID → EntityId 전환으로 정렬 순서 보장 불가).
+            // 어차피 정렬이 필요 없는 호출이므로 신버전에서는 정렬 인자 없는 오버로드를 쓴다
+#if UNITY_6000_5_OR_NEWER
+            var sources = FindObjectsByType<AudioSource>(FindObjectsInactive.Include);
+#else
             var sources = FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+#endif
             foreach (var source in sources)
             {
                 if (source == sfxSource) continue; // PlayOneShot 전용 소스 — pause 불필요, UI 클릭음 오작동 방지
