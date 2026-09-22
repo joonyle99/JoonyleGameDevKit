@@ -2,7 +2,7 @@
 	"name": "com.joonyle.gamedevkit",
 	"displayName":"JoonyleGameDevKit",
 	"description": "Unity game development kit",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"unity": "6000.0",
 	"dependencies": {
 		"com.unity.inputsystem": "1.11.2",

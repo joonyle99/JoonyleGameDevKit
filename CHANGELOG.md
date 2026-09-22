@@ -5,6 +5,11 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.2] - 2026-09-22
+
+### Changed
+- `SingletonReset.ResetAll`이 되돌릴 타입이 하나도 없으면 에디터 진단 로그를 남기지 않는다 (도메인이 새로 생성된 직후의 첫 진입에서 알릴 내용 없는 로그가 찍히던 것을 정리)
+
 ## [2.0.1] - 2026-09-22
 
 ### Changed
