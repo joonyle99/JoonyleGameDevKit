@@ -5,6 +5,12 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.4] - 2026-09-22
+
+### Fixed
+- `SoundManagerBase.PlayBgm`이 재생 중이 아닐 때도 페이드아웃 시간을 기다려, 첫 BGM과 `StopBgm` 직후의 재생이 페이드 길이만큼 늦게 시작되던 문제. `bgmSource.isPlaying`이 false면 페이드아웃을 건너뛴다
+- `SoundManagerBase.StopBgm`도 같은 이유로 재생 중이 아니면 페이드 없이 즉시 정리한다
+
 ## [2.0.3] - 2026-09-22
 
 ### Fixed
