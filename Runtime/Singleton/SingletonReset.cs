@@ -57,7 +57,13 @@ namespace JoonyleGameDevKit
 
 #if UNITY_EDITOR
             // 정적 생성자는 타입을 처음 사용할 때(Awake) 실행되고 그건 SubsystemRegistration보다 뒤다.
-            // 따라서 도메인이 새로 만들어진 직후의 첫 진입은 0으로 찍히는 것이 정상이다.
+            // 따라서 도메인이 새로 만들어진 직후의 첫 진입은 되돌릴 대상이 하나도 없는 것이 정상이며,
+            // 이 경우엔 알릴 내용이 없으므로 로그를 남기지 않는다.
+            if (_resets.Count == 0)
+            {
+                return;
+            }
+
             var names = new string[_resets.Count];
             var index = 0;
             foreach (var pair in _resets)
@@ -66,9 +72,7 @@ namespace JoonyleGameDevKit
             }
 
             Debug.Log($"<color=cyan>Reset Statics · Singleton</color> - {_resets.Count} types\n"
-                + (_resets.Count == 0
-                    ? "도메인이 새로 생성되어 되돌릴 대상이 없습니다 (다음 진입부터 등록됨)"
-                    : string.Join(", ", names)));
+                + string.Join(", ", names));
 #endif
         }
     }
