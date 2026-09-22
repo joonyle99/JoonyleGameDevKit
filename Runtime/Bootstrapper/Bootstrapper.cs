@@ -5,7 +5,9 @@ namespace JoonyleGameDevKit
 {
     /// <summary>
     /// RuntimeInitializer에 의해 씬이 로드되기 전에 생성되며,
-    /// 게임 시작 전에 필요한 매니저를 초기화합니다
+    /// 게임 시작 전에 필요한 매니저를 초기화합니다.
+    /// 선택 기능이므로, 사용하려는 프로젝트만 Resources/Prefabs/Bootstrapper 프리팹을 두면 됩니다
+    /// (Bootstrapper 샘플을 임포트하면 바로 사용 가능)
     /// </summary>
     public class Bootstrapper : PersistentSingleton<Bootstrapper>
     {
