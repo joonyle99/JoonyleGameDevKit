@@ -116,17 +116,37 @@ namespace JoonyleGameDevKit
 
             if (volume >= 0f) bgmVolume = volume;
 
-            FadeBgmTo(0f);
-            _bgmFadeTween.OnComplete(() =>
+            // 재생 중이 아니면 페이드아웃할 대상이 없다.
+            // 첫 재생이나 StopBgm 직후에 아무것도 안 울리는 채로 페이드 시간을 기다리던 문제
+            if (bgmSource.isPlaying == false)
             {
-                bgmSource.clip = entry.clip;
-                bgmSource.Play();
-                FadeBgmTo(bgmVolume);
-            });
+                // StopBgm 등이 걸어둔 페이드가 남아 새 재생의 볼륨을 덮어쓰지 않도록 제거한다
+                // (Kill은 OnComplete를 호출하지 않으므로 예약된 Stop도 함께 취소된다)
+                _bgmFadeTween?.Kill();
+                _bgmFadeTween = null;
+
+                bgmSource.volume = 0f;
+                SwitchBgmClip(entry.clip);
+                return;
+            }
+
+            FadeBgmTo(0f);
+            _bgmFadeTween.OnComplete(() => SwitchBgmClip(entry.clip));
         }
 
         public void StopBgm()
         {
+            // 재생 중이 아니라면 페이드 없이 즉시 정리한다
+            if (bgmSource.isPlaying == false)
+            {
+                _bgmFadeTween?.Kill();
+                _bgmFadeTween = null;
+
+                bgmSource.Stop();
+                bgmSource.clip = null;
+                return;
+            }
+
             FadeBgmTo(0f);
             _bgmFadeTween.OnComplete(() =>
             {
@@ -144,6 +164,13 @@ namespace JoonyleGameDevKit
         }
 
         // ============== ... ==============
+
+        private void SwitchBgmClip(AudioClip clip)
+        {
+            bgmSource.clip = clip;
+            bgmSource.Play();
+            FadeBgmTo(bgmVolume);
+        }
 
         private void FadeBgmTo(float targetVolume)
         {
