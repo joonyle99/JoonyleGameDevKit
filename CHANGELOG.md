@@ -5,6 +5,11 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2026-09-22
+
+### Changed
+- `RuntimeInitializer`가 `Resources/Prefabs/Bootstrapper` 프리팹을 찾지 못해도 에러 로그 없이 조용히 넘어간다. Bootstrapper는 이제 선택 기능이며, 쓰려는 프로젝트만 프리팹을 두면 된다 (Bootstrapper 샘플 임포트)
+
 ## [2.0.0] - 2026-09-20
 
 ### Changed
